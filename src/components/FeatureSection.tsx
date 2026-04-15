@@ -10,6 +10,7 @@ const visibleSlide = { opacity: 1, x: 0 };
 const slowTransition = { duration: 0.8 };
 const delayTransition = { duration: 0.8, delay: 0.2 };
 const viewOnce = { once: true, margin: "-100px" };
+const floatStyle = { animation: "float 3s ease-in-out infinite" };
 
 export default function FeatureSection() {
   return (
@@ -35,7 +36,7 @@ export default function FeatureSection() {
 
             <div
               className="absolute -right-4 -bottom-4 z-10 flex h-28 w-28 items-center justify-center rounded-full bg-[#C8A882] shadow-xl md:-right-8 md:-bottom-8 md:h-36 md:w-36"
-              style= animation: "float 3s ease-in-out infinite" 
+              style={floatStyle}
             >
               <span
                 className="text-center text-sm font-bold leading-tight text-white md:text-base"

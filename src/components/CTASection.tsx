@@ -9,10 +9,14 @@ const fontDisplay = { fontFamily: "var(--font-display)" };
 const fadeIn = { opacity: 0 };
 const visibleFade = { opacity: 1 };
 const scaleUp = { opacity: 0, scale: 0.95 };
-const visibleScale = { opacity: 1, y: 0 };
 const visible = { opacity: 1, scale: 1 };
 const viewOnce = { once: true, margin: "-100px" };
 const viewAlways = { once: true };
+const t06 = { duration: 0.6 };
+const t06d2 = { duration: 0.6, delay: 0.2 };
+const t06d4 = { duration: 0.6, delay: 0.4 };
+const t05d5 = { duration: 0.5, delay: 0.5 };
+const t08d3 = { duration: 0.8, delay: 0.3 };
 
 export default function CTASection() {
   return (
@@ -22,7 +26,7 @@ export default function CTASection() {
           <motion.h2
             initial={fadeIn}
             whileInView={visibleFade}
-            transition= duration: 0.6 
+            transition={t06}
             viewport={viewOnce}
             className="mb-2 text-4xl font-bold text-white md:text-5xl lg:text-6xl"
             style={fontDisplay}
@@ -33,7 +37,7 @@ export default function CTASection() {
           <motion.p
             initial={fadeIn}
             whileInView={visibleFade}
-            transition= duration: 0.6, delay: 0.2 
+            transition={t06d2}
             viewport={viewOnce}
             className="mb-8 text-5xl italic text-[#C8A882] md:text-6xl lg:text-7xl"
             style={fontDisplay}
@@ -44,7 +48,7 @@ export default function CTASection() {
           <motion.div
             initial={fadeIn}
             whileInView={visibleFade}
-            transition= duration: 0.6, delay: 0.4 
+            transition={t06d4}
             viewport={viewAlways}
           >
             <Link
@@ -59,7 +63,7 @@ export default function CTASection() {
           <motion.p
             initial={fadeIn}
             whileInView={visibleFade}
-            transition= duration: 0.5, delay: 0.5 
+            transition={t05d5}
             viewport={viewAlways}
             className="mt-4 text-sm tracking-wide text-white/60"
           >
@@ -69,7 +73,7 @@ export default function CTASection() {
           <motion.div
             initial={scaleUp}
             whileInView={visible}
-            transition= duration: 0.8, delay: 0.3 
+            transition={t08d3}
             viewport={viewOnce}
             className="mt-14"
           >
