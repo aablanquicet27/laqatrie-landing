@@ -10,13 +10,13 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
-  /* Brand Colors */
-  --color-brand-primary: #2B6E63;
-  --color-brand-secondary: #1D4E46;
-  --color-brand-accent: #D4A574;
-  --color-brand-cream: #FFF8F0;
+  /* Brand Colors - Navy Blue + Beige */
+  --color-brand-primary: #1B2A4A;
+  --color-brand-secondary: #0F1D35;
+  --color-brand-accent: #C8A882;
+  --color-brand-cream: #FAF5EE;
   --color-brand-dark: #1a1a1a;
-  --color-brand-light: #FFF8F0;
+  --color-brand-light: #FAF5EE;
 
   /* Shadcn color mappings */
   --color-sidebar-ring: var(--sidebar-ring);
@@ -62,38 +62,38 @@
 }
 
 :root {
-  --background: #FFF8F0;
+  --background: #FAF5EE;
   --foreground: #1a1a1a;
   --card: #ffffff;
   --card-foreground: #1a1a1a;
   --popover: #ffffff;
   --popover-foreground: #1a1a1a;
-  --primary: #2B6E63;
-  --primary-foreground: #FFF8F0;
-  --secondary: #1D4E46;
-  --secondary-foreground: #FFF8F0;
-  --muted: #f5f0eb;
+  --primary: #1B2A4A;
+  --primary-foreground: #FAF5EE;
+  --secondary: #0F1D35;
+  --secondary-foreground: #FAF5EE;
+  --muted: #f0ebe5;
   --muted-foreground: #6b6b6b;
-  --accent: #D4A574;
+  --accent: #C8A882;
   --accent-foreground: #1a1a1a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e8e0d8;
-  --input: #e8e0d8;
-  --ring: #2B6E63;
+  --border: #e0d8cf;
+  --input: #e0d8cf;
+  --ring: #1B2A4A;
   --chart-1: oklch(0.809 0.105 251.813);
   --chart-2: oklch(0.623 0.214 259.815);
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
   --radius: 0.625rem;
-  --sidebar: #FFF8F0;
+  --sidebar: #FAF5EE;
   --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: #2B6E63;
-  --sidebar-primary-foreground: #FFF8F0;
-  --sidebar-accent: #f5f0eb;
+  --sidebar-primary: #1B2A4A;
+  --sidebar-primary-foreground: #FAF5EE;
+  --sidebar-accent: #f0ebe5;
   --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #e8e0d8;
-  --sidebar-ring: #2B6E63;
+  --sidebar-border: #e0d8cf;
+  --sidebar-ring: #1B2A4A;
 }
 
 @layer base {
@@ -164,13 +164,13 @@
 .hero-swiper .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background: rgba(255, 248, 240, 0.5);
+  background: rgba(250, 245, 238, 0.5);
   opacity: 1;
   transition: all 0.3s ease;
 }
 
 .hero-swiper .swiper-pagination-bullet-active {
-  background: #D4A574;
+  background: #C8A882;
   width: 32px;
   border-radius: 6px;
 }
@@ -182,7 +182,7 @@
 /* Location carousel */
 .location-swiper .swiper-button-next,
 .location-swiper .swiper-button-prev {
-  color: #2B6E63;
+  color: #1B2A4A;
   width: 44px;
   height: 44px;
   background: white;
@@ -203,7 +203,7 @@
 }
 
 .header-solid {
-  background-color: #2B6E63 !important;
+  background-color: #1B2A4A !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -213,14 +213,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFF8F0;
+  background: #FAF5EE;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2B6E63;
+  background: #1B2A4A;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1D4E46;
+  background: #0F1D35;
 }

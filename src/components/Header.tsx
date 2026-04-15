@@ -7,15 +7,20 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const leftNav = [
-  { label: "Menú", href: "#menu" },
+  { label: "Menu", href: "#menu" },
   { label: "Nosotros", href: "#nosotros" },
-  { label: "Visítanos", href: "#ubicaciones" },
+  { label: "Visitanos", href: "#ubicaciones" },
 ];
 
 const rightNav = [
   { label: "Reservas", href: "#reservas" },
-  { label: "Contáctanos", href: "#contacto" },
+  { label: "Contactanos", href: "#contacto" },
 ];
+
+const overlayVariants = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
+const sidebarVariants = { hidden: { x: "100%" }, visible: { x: 0 } };
+const sidebarTransition = { type: "spring", damping: 30, stiffness: 300 };
+const fadeTransition = { duration: 0.3 };
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -54,7 +59,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium tracking-wide text-white/90 transition-colors hover:text-[#D4A574]"
+                className="text-sm font-medium tracking-wide text-white/90 transition-colors hover:text-[#C8A882]"
               >
                 {item.label}
               </Link>
@@ -79,24 +84,24 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium tracking-wide text-white/90 transition-colors hover:text-[#D4A574]"
+                className="text-sm font-medium tracking-wide text-white/90 transition-colors hover:text-[#C8A882]"
               >
                 {item.label}
               </Link>
             ))}
             <Link
               href="#pedir"
-              className="rounded-full bg-[#D4A574] px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#c49564] hover:shadow-lg"
+              className="rounded-full bg-[#C8A882] px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#b89872] hover:shadow-lg"
             >
-              Pide en línea
+              Pide en linea
             </Link>
           </nav>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="relative z-50 flex items-center gap-2 rounded-full bg-[#D4A574]/20 p-2.5 text-white backdrop-blur-sm transition-colors hover:bg-[#D4A574]/40 lg:hidden"
-            aria-label="Abrir menú"
+            className="relative z-50 flex items-center gap-2 rounded-full bg-[#C8A882]/20 p-2.5 text-white backdrop-blur-sm transition-colors hover:bg-[#C8A882]/40 lg:hidden"
+            aria-label="Abrir menu"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -107,25 +112,24 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* Overlay */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              variants={overlayVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              transition={fadeTransition}
               className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
               onClick={() => setMobileOpen(false)}
             />
 
-            {/* Sidebar */}
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 z-50 flex h-full w-80 flex-col bg-[#2B6E63] shadow-2xl"
+              variants={sidebarVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              transition={sidebarTransition}
+              className="fixed top-0 right-0 z-50 flex h-full w-80 flex-col bg-[#1B2A4A] shadow-2xl"
             >
-              {/* Close button */}
               <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
                 <Image
                   src="/assets/logo.jpg"
@@ -137,40 +141,32 @@ export default function Header() {
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="rounded-full p-2 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
-                  aria-label="Cerrar menú"
+                  aria-label="Cerrar menu"
                 >
                   <X size={24} />
                 </button>
               </div>
 
-              {/* Nav links */}
               <nav className="flex flex-col gap-1 px-4 pt-6">
-                {[...leftNav, ...rightNav].map((item, i) => (
-                  <motion.div
+                {[...leftNav, ...rightNav].map((item) => (
+                  <Link
                     key={item.label}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + i * 0.05 }}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block rounded-lg px-4 py-3.5 text-lg font-semibold text-white/90 transition-colors hover:bg-white/10 hover:text-white"
                   >
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block rounded-lg px-4 py-3.5 text-lg font-semibold text-white/90 transition-colors hover:bg-white/10 hover:text-white"
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
+                    {item.label}
+                  </Link>
                 ))}
               </nav>
 
-              {/* CTA */}
               <div className="mt-auto px-6 pb-8">
                 <Link
                   href="#pedir"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full rounded-full bg-[#D4A574] px-6 py-3.5 text-center text-base font-semibold text-white transition-all hover:bg-[#c49564]"
+                  className="block w-full rounded-full bg-[#C8A882] px-6 py-3.5 text-center text-base font-semibold text-white transition-all hover:bg-[#b89872]"
                 >
-                  Pide en línea
+                  Pide en linea
                 </Link>
               </div>
             </motion.div>

@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "La Qatrie — Restaurante de Desayunos y Brunch en Cali",
+  title: "La Qatrie - Restaurante de Desayunos y Brunch en Cali",
   description:
     "Celebramos el buen comer con desayunos artesanales, brunch y recetas de la abuela. Restaurante en Cali, Colombia. Domicilios disponibles.",
   keywords: [
@@ -30,13 +30,15 @@ export const metadata: Metadata = {
     "La Qatrie",
   ],
   openGraph: {
-    title: "La Qatrie — Restaurante de Desayunos y Brunch en Cali",
+    title: "La Qatrie - Restaurante de Desayunos y Brunch en Cali",
     description:
       "Celebramos el buen comer con desayunos artesanales, brunch y recetas de la abuela.",
     type: "website",
     locale: "es_CO",
   },
 };
+
+const bodyClasses = `${"font-playfair"} ${"font-inter"} antialiased`;
 
 export default function RootLayout({
   children,
@@ -47,7 +49,6 @@ export default function RootLayout({
     <html lang="es">
       <body
         className={`${playfair.variable} ${inter.variable} antialiased`}
-        style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
       >
         {children}
       </body>

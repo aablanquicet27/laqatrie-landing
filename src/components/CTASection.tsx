@@ -5,64 +5,72 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+const fontDisplay = { fontFamily: "var(--font-display)" };
+const fadeIn = { opacity: 0 };
+const visibleFade = { opacity: 1 };
+const scaleUp = { opacity: 0, scale: 0.95 };
+const visibleScale = { opacity: 1, y: 0 };
+const visible = { opacity: 1, scale: 1 };
+const viewOnce = { once: true, margin: "-100px" };
+const viewAlways = { once: true };
+
 export default function CTASection() {
   return (
-    <section id="pedir" className="bg-[#2B6E63] py-20 lg:py-28">
+    <section id="pedir" className="bg-[#1B2A4A] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
+            initial={fadeIn}
+            whileInView={visibleFade}
+            transition= duration: 0.6 
+            viewport={viewOnce}
             className="mb-2 text-4xl font-bold text-white md:text-5xl lg:text-6xl"
-            style={{ fontFamily: "var(--font-playfair), serif" }}
+            style={fontDisplay}
           >
             Come lo que quieras
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="mb-8 text-5xl italic text-[#D4A574] md:text-6xl lg:text-7xl"
-            style={{ fontFamily: "var(--font-playfair), serif" }}
+            initial={fadeIn}
+            whileInView={visibleFade}
+            transition= duration: 0.6, delay: 0.2 
+            viewport={viewOnce}
+            className="mb-8 text-5xl italic text-[#C8A882] md:text-6xl lg:text-7xl"
+            style={fontDisplay}
           >
             Come Rico
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
+            initial={fadeIn}
+            whileInView={visibleFade}
+            transition= duration: 0.6, delay: 0.4 
+            viewport={viewAlways}
           >
             <Link
               href="#pedir"
-              className="inline-flex items-center gap-2 rounded-full bg-[#D4A574] px-8 py-4 text-base font-semibold text-white transition-all hover:bg-[#c49564] hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-full bg-[#C8A882] px-8 py-4 text-base font-semibold text-white transition-all hover:bg-[#b89872] hover:shadow-xl"
             >
-              Pide en línea ahora
+              Pide en linea ahora
               <ArrowRight size={18} />
             </Link>
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            viewport={{ once: true }}
+            initial={fadeIn}
+            whileInView={visibleFade}
+            transition= duration: 0.5, delay: 0.5 
+            viewport={viewAlways}
             className="mt-4 text-sm tracking-wide text-white/60"
           >
             Domicilios en Cali
           </motion.p>
 
-          {/* Lifestyle image */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            viewport={{ once: true, margin: "-100px" }}
+            initial={scaleUp}
+            whileInView={visible}
+            transition= duration: 0.8, delay: 0.3 
+            viewport={viewOnce}
             className="mt-14"
           >
             <div className="overflow-hidden rounded-3xl">
